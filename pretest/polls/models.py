@@ -10,11 +10,15 @@ class Stadium(models.Model):
     place = models.CharField(max_length=100)
     image = models.ImageField(upload_to='stadium_images')
     created_at = models.DateTimeField(auto_now_add=True)
-    avetotalrating = models.IntegerField(default=0)
-    avefoodrating = models.IntegerField(default=0)
-    aveaccessrating = models.IntegerField(default=0)
-    avevisibilityrating = models.IntegerField(default=0)
-    avepassionrating = models.IntegerField(default=0)
+    def __str__(self):
+        return self.name
+    # avetotalrating = models.IntegerField(default=0)
+    # avefoodrating = models.IntegerField(default=0)
+    # aveaccessrating = models.IntegerField(default=0)
+    # avevisibilityrating = models.IntegerField(default=0)
+    # avepassionrating = models.IntegerField(default=0)
+    
+
 
 
 class Review(models.Model):
