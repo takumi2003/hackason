@@ -15,6 +15,15 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Tepmpateフォルダへの絶対パスを定義
+TEMPLATE_DIR = BASE_DIR / "Template"
+
+# staticフォルダへの絶対パスを定義
+STATIC_DIR = BASE_DIR / "static"
+
+# メディアフォルダへの絶対パスを定義
+MEDIA_DIR = BASE_DIR / "media"
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -56,7 +65,7 @@ ROOT_URLCONF = 'pretest.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [''],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,9 +89,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'mydb', # データベース名
         'USER': 'hide', # データベースに接続するユーザー名
-        'PASSWORD': 'hidedayo', # データベースに接続する際のパスワード
+        'PASSWORD': 'SCRAM-SHA-256$4096:8n1nUlHrF6RdcNf8ufMi1g==$P6qTmkGpyGkLxi6gfFqtDogLJECdmMLa70ihWQcghgE=:GPurH5ghRJGSdLBClm7a/apHFrA+inlgmsRhc40VCbE=', # データベースに接続する際のパスワード
         'HOST': 'localhost',
-        'PORT': ""
+        'PORT': "5432"
 
     }
 }
@@ -90,6 +99,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -130,3 +140,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/polls/login/'
+
