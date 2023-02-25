@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here
 
 
@@ -42,10 +43,10 @@ class Review(models.Model):
             accessrating_avg = stadium_reviews.aggregate(models.Avg('accessrating'))['accessrating__avg']
             visibilityrating_avg = stadium_reviews.aggregate(models.Avg('visibilityrating'))['visibilityrating__avg']
             passionrating_avg = stadium_reviews.aggregate(models.Avg('passionrating'))['passionrating__avg']
-            self.stadium.avetotalrating = totalrating_avg
-            self.stadium.avefoodrating = foodrating_avg
-            self.stadium.aveaccessrating = accessrating_avg
-            self.stadium.avevisibilityrating = visibilityrating_avg
-            self.stadium.avepassionrating = passionrating_avg
+            self.stadium.avetotalrating = round(totalrating_avg,2)
+            self.stadium.avefoodrating = round(foodrating_avg,2)
+            self.stadium.aveaccessrating = round(accessrating_avg,2)
+            self.stadium.avevisibilityrating = round(visibilityrating_avg,2)
+            self.stadium.avepassionrating = round(passionrating_avg,2)
             self.stadium.save()
 
