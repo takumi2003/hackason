@@ -50,10 +50,13 @@ INSTALLED_APPS = [
     'front_app',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
     'pretest',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # new topに置く
+    'django.middleware.common.CommonMiddleware', # new
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
