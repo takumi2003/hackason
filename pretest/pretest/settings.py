@@ -159,3 +159,4 @@ REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'polls.utils.custom_exception_handler',
 }
 
+CORS_ORIGIN_ALLOW_ALL = True
