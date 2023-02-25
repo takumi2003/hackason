@@ -22,5 +22,9 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('front_app/', include('front_app.urls')),
     path('admin/', admin.site.urls),
+    path('stadium', views.stadium_list),
+    path('<int:pk>/', views.stadium_detail),
+    path('review', views.review_list),
+    path('<int:pk>/', views.review_detail),
     
 ]
