@@ -64,7 +64,10 @@ class ReviewList(APIView):
         return JsonResponse(serializer.data, safe=False)
 
     def post(self, request):
-        data = JSONParser().parse(request)
+        data = request.body
+        if not data:
+            return JsonResponse({'error': 'Request body is empty'}, status=status.HTTP_400_BAD_REQUEST)
+        data = JSONParser().parse(data)
         serializer = ReviewSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
