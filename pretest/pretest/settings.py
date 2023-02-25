@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'front_app',
     'rest_framework',
+    'rest_framework.authtoken',
+    'pretest',
 ]
 
 MIDDLEWARE = [
@@ -145,9 +147,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/polls/login/'
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
-    'EXCEPTION_HANDLER': 'pretest.polls.utils.custom_exception_handler'
+    'EXCEPTION_HANDLER': 'polls.utils.custom_exception_handler',
 }
 
