@@ -1,3 +1,3 @@
-# kakiuna
+# 昔のhackason  
+とても炎上したプロジェクト
 
-test
